@@ -3,8 +3,9 @@ package com.afs.vulnerable.springbreak;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
-import org.gjt.mm.mysql.Driver;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 @Component
 public class UsersService {
@@ -20,7 +21,7 @@ public class UsersService {
             if (conn == null) {
 
                 Class.forName(myDriver);
-                conn = DriverManager.getConnection(myUrl, "root", "");
+                conn = DriverManager.getConnection(myUrl, "test", "");
             }
 
             String query = "SELECT * FROM USERS WHERE id = " + id;
