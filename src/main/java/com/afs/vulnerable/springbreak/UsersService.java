@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 public class UsersService {
     @Autowired
     CookieRepository repository;
-    String myDriver = "org.gjt.mm.mysql.Driver";
     String myUrl = "jdbc:mysql://localhost:3306/vulnerableApp";
 
     Connection conn;
@@ -19,8 +18,6 @@ public class UsersService {
     public User getUser(String id) {
         try {
             if (conn == null) {
-
-                Class.forName(myDriver);
                 conn = DriverManager.getConnection(myUrl, "test", "");
             }
 

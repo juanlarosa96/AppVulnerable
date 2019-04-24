@@ -67,7 +67,13 @@
       <artifactId>jaxb-api</artifactId>
       <version>2.3.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.15</version>
+    </dependency>
+
   </dependencies>
-  <url>https://github.com/m3ssap0/SpringBreakVulnerableApp</url>
   <packaging>jar</packaging>
 </project>
