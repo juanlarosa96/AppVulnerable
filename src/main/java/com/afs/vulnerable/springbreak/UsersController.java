@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,10 +15,10 @@ public class UsersController {
     @Autowired
     UsersService service;
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/{token}", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
-    public ResponseEntity getUserInfo(@Param("id") String id, @Param("token") String token) {
-        if(!token.equals("123")) return new ResponseEntity("", HttpStatus.BAD_REQUEST);
+    public ResponseEntity getUserInfo(@Param("id") String id, @PathVariable("token") String token) {
+        if(!token.equals("123")) return new ResponseEntity("Invalid token", HttpStatus.BAD_REQUEST);
         return new ResponseEntity<User>(service.getUser(id), HttpStatus.OK);
     }
 
