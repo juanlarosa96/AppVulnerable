@@ -26,7 +26,17 @@ public class UsersController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
     public ResponseEntity getInfo() {
-        return new ResponseEntity("prueba", HttpStatus.OK);
+        return new ResponseEntity("{\n" +
+                "  \"_links\" : {\n" +
+                "    \"entity\" : {\n" +
+                "      \"href\" : \"http://192.168.0.75:8080/entity{?page,size,sort}\",\n" +
+                "      \"templated\" : true\n" +
+                "    },\n" +
+                "    \"users\" : {\n" +
+                "      \"href\" : \"http://192.168.0.75:8080/users{?id,token}\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}", HttpStatus.OK);
     }
 
 }
