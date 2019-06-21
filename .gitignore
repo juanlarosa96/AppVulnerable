@@ -61,4 +61,5 @@ junit*.properties
 
 .idea/
 SpringBreakVulnerableApp.iml
+AppVulnerable.iml
 

