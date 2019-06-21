@@ -12,10 +12,11 @@
  *
  */
 
-package com.afs.vulnerable.springbreak;
+package com.afs.vulnerable.springbreak.repositories;
 
 import java.util.List;
 
+import com.afs.vulnerable.springbreak.entities.MyEntity;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

@@ -1,14 +1,17 @@
-package com.afs.vulnerable.springbreak;
+package com.afs.vulnerable.springbreak.controllers;
 
+import com.afs.vulnerable.springbreak.models.User;
+import com.afs.vulnerable.springbreak.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+
+import org.springframework.ui.Model;
 
 @Controller
 public class UsersController {
@@ -26,8 +29,8 @@ public class UsersController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
-    public ResponseEntity getInfo() {
-        return new ResponseEntity("<div class='hola'>hola</div>", HttpStatus.OK);
+    public String index() {
+        return "index";
     }
 
 }

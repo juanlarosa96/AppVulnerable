@@ -1,5 +1,7 @@
-package com.afs.vulnerable.springbreak;
+package com.afs.vulnerable.springbreak.services;
 
+import com.afs.vulnerable.springbreak.models.User;
+import com.afs.vulnerable.springbreak.repositories.CookieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

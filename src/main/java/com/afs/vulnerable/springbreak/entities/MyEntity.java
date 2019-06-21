@@ -12,7 +12,7 @@
  * 
  */
 
-package com.afs.vulnerable.springbreak;
+package com.afs.vulnerable.springbreak.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

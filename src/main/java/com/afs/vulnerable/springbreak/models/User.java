@@ -1,4 +1,4 @@
-package com.afs.vulnerable.springbreak;
+package com.afs.vulnerable.springbreak.models;
 
 public class User {
     String id;

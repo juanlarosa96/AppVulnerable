@@ -1,4 +1,4 @@
-package com.afs.vulnerable.springbreak;
+package com.afs.vulnerable.springbreak.repositories;
 
 import org.springframework.stereotype.Component;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
