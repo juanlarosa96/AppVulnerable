@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UsersController {
@@ -18,15 +19,17 @@ public class UsersController {
     @RequestMapping(value = "/users/{token}", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
     public ResponseEntity getUserInfo(@Param("id") String id, @PathVariable("token") String token) {
-        if(!token.equals("123")) return new ResponseEntity("Invalid token", HttpStatus.BAD_REQUEST);
+        if (!token.equals("123")) return new ResponseEntity("Invalid token", HttpStatus.BAD_REQUEST);
         return new ResponseEntity<User>(service.getUser(id), HttpStatus.OK);
     }
 
     // /users?id=1&token=123
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
-    public ResponseEntity getInfo() {
+    public ModelAndView getInfo() {
+        return new ModelAndView("404.html");
+        /*
         return new ResponseEntity("{\n" +
                 "  \"_links\" : {\n" +
                 "    \"entity\" : {\n" +
@@ -38,6 +41,8 @@ public class UsersController {
                 "    }\n" +
                 "  }\n" +
                 "}", HttpStatus.OK);
+
+         */
     }
 
 }
