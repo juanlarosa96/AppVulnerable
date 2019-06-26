@@ -33,4 +33,19 @@ public class UsersController {
         return "index";
     }
 
+    @RequestMapping(value = "/login/{user}/{pass}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
+     public ResponseEntity login(@PathVariable("user") String user, @PathVariable("pass") String pass) {
+        if (( user.equals("rferro") && pass.equals("9450476b384b32d8ad8b758e76c98a69") ) || ( user.equals("ssoldan") && pass.equals("fdf3ba27fb50e02dd5d1ada8d5d933fc") )){
+            return new ResponseEntity( HttpStatus.OK); 
+        }
+        else{
+            return new ResponseEntity( HttpStatus.BAD_REQUEST); 
+        }
+      
+        
+    }
+
+
+
 }

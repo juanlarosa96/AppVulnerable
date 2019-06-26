@@ -42,6 +42,8 @@
 
 <script>
 var result = "";
+var passG = "";
+var userG="";
   import axios from 'axios';
   
   export default {
@@ -69,14 +71,22 @@ var result = "";
     methods: {
      
        greet: function (event) {
+       
          var user = document.getElementById("username").value;
          var pass = document.getElementById("password").value;
+         passG = pass;
+         userG = user;
+         result="";
          //pass = (user=="rferro" && pass=="hola123")?"9450476b384b32d8ad8b758e76c98a69":((user=="ssoldan" && pass=="argentina86")? "fdf3ba27fb50e02dd5d1ada8d5d933fc": document.getElementById("password").value);
         if (user == "rferro" && pass=="hola123"){
           result = "ok_ferro";
+          passG = pass = "9450476b384b32d8ad8b758e76c98a69";
+          userG = user;
         }else{
           if(user=="ssoldan" && pass=="argentina86"){
             result ="ok_soldan";
+            passG = pass = "fdf3ba27fb50e02dd5d1ada8d5d933fc";
+            userG = user;
           }
         }
         
@@ -85,9 +95,7 @@ var result = "";
         
         this.loading = true;
         this.errors = '';
-        axios.post('/api/login', {
-          ...loginData
-        })
+        axios.get('http://localhost:8080/login/' + loginData.email + "/" +loginData.password )
         .then(() => {
           setTimeout(() => { this.loading = false; }, this.delay)
         })
@@ -110,8 +118,8 @@ var result = "";
       },
       submit() {
         this.login({
-          email: this.email,
-          password: this.password
+          email: userG ,
+          password: passG
         })
       }
     }
