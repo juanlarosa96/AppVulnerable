@@ -29,18 +29,12 @@ const routes = [
         path: 'users',
         name: 'UserList',
         component: UserList
-      }
-    ]
-  },
-  {
-    path: '/entities',
-    component: Entities,
-    children: [
+      },
       {
         path: 'entities',
         name: 'Entities',
         component: Entities
-      }
+      },
     ]
   },
   {

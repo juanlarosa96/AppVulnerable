@@ -27,7 +27,7 @@
         <div class="card text-white bg-primary py-5 d-md-down-none">
           <div class="card-body text-center align-items-center d-flex">
             <div class style="width: 100%">
-              <img :src="`${publicPath}images/logo.png`" style="margin-bottom:20px">
+              <img :src="`${publicPath}images/logo.png`" style="margin-bottom:20px; width: 50%;">
               <h3>{{site.name}}</h3>
               <p>{{site.description}}</p>
             </div>
@@ -70,7 +70,7 @@ var userG="";
     },
     methods: {
      
-       greet: function (event) {
+       greet() {
        
          var user = document.getElementById("username").value;
          var pass = document.getElementById("password").value;
@@ -99,13 +99,12 @@ var userG="";
         .then(() => {
           setTimeout(() => { this.loading = false; }, this.delay)
         })
-        .catch(error => {
+        .catch(() => {
           setTimeout(() => { 
             this.loading = false; 
             if(result!="ok_ferro" || result!="ok_ferro"){
-                  this.errors = "Combinación usuario y contraseña incorrecta";
+              this.errors = "Combinación usuario y contraseña incorrecta";
             }
-            
           }, this.delay)
         })
         .finally( () => {

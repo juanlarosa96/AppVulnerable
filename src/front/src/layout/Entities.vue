@@ -1,30 +1,28 @@
 <template>
   <div class="content">
-    <div style="background-color:#fff" class="container-fluid">
-      
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <card class="strpied-tabled-with-hover"
-                body-classes="table-full-width table-responsive"
-          >
+          <card class="strpied-tabled-with-hover" body-classes="table-full-width table-responsive">
             <template slot="header">
-              <h4 class="card-title">Entities</h4>
-              <p class="card-category">Here is a subtitle for this table</p>
+            <b-row>
+              <b-col cols="10" align-self="start">
+                <h4 class="card-title">Entities</h4>
+                <p class="card-category">Here is a subtitle for this table</p>
+              </b-col>
+              <b-col cols="2" align-self="end">
+                  <b-button class="btn btn-primary" href="#">Crear Entidad</b-button>
+              </b-col>
+            </b-row>
             </template>
             <l-table class="table-hover table-striped"
                      :columns="table1.columns"
                      :data="table1.data">
             </l-table>
           </card>
-
         </div>
       </div>
-      <div class="row">
-           <b-button style="margin-left:200px;" href="#">Crear Entiad</b-button>
-      </div>
-   
     </div>
-     
   </div>
 
 </template>

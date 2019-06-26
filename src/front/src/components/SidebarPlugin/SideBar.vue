@@ -48,7 +48,7 @@
     props: {
       title: {
         type: String,
-        default: 'DEMO-APP'
+        default: 'Software Co.'
       },
       backgroundColor: {
         type: String,
