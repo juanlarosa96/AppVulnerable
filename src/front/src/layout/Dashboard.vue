@@ -5,9 +5,9 @@
         <i class="nc-icon nc-chart-pie-35"></i>
         <p>Users</p>
       </sidebar-link>
-      <sidebar-link to="/admin/products">
+      <sidebar-link to="/entities">
         <i class="nc-icon nc-chart-pie-35"></i>
-        <p>Producs</p>
+        <p>Entidades</p>
       </sidebar-link>
     </side-bar>
     <div class="main-panel">

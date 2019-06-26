@@ -1,6 +1,7 @@
 import Login from "./../layout/Login.vue"
 import Dashboard from "./../layout/Dashboard.vue"
 import UserList from "./../layout/UserList.vue"
+import Entities from "./../layout/Entities.vue"
 
 // GeneralViews
 import NotFound from './../pages/NotFound.vue'
@@ -28,6 +29,17 @@ const routes = [
         path: 'users',
         name: 'UserList',
         component: UserList
+      }
+    ]
+  },
+  {
+    path: '/entities',
+    component: Entities,
+    children: [
+      {
+        path: 'entities',
+        name: 'Entities',
+        component: Entities
       }
     ]
   },

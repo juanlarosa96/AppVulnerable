@@ -11,8 +11,8 @@
             <label for="username">Username</label>
             <b-form-input id="username" type="text" :required="true"></b-form-input>
             <label for="password">Password</label>
-            <b-form-input id="password" type="password" :required="true"></b-form-input>
-            <b-button 
+            <b-form-input id="password" type="password" :required="true" ></b-form-input>
+            <b-button v-on:click="greet"
               variant="primary" 
               class="active mt-3" 
               :disabled="loading"
@@ -41,7 +41,9 @@
 </template>
 
 <script>
+var result = "";
   import axios from 'axios';
+  
   export default {
     name: "Login",
     data() {
@@ -51,8 +53,8 @@
         password: '',
         errors: '',
         site: {
-          name: "DEMO-APP",
-          description: "El mejor sitio para...",
+          name: "Software Corporativo",
+          description: "Cuidamos tu información",
           footer: "Seguridad en Aplicaciones Web 1C2019, Grupo 2 - UTN FRBA"
         },
         loading: false,
@@ -65,7 +67,22 @@
       }
     },
     methods: {
+     
+       greet: function (event) {
+         var user = document.getElementById("username").value;
+         var pass = document.getElementById("password").value;
+         //pass = (user=="rferro" && pass=="hola123")?"9450476b384b32d8ad8b758e76c98a69":((user=="ssoldan" && pass=="argentina86")? "fdf3ba27fb50e02dd5d1ada8d5d933fc": document.getElementById("password").value);
+        if (user == "rferro" && pass=="hola123"){
+          result = "ok_ferro";
+        }else{
+          if(user=="ssoldan" && pass=="argentina86"){
+            result ="ok_soldan";
+          }
+        }
+        
+    },
       login(loginData) {
+        
         this.loading = true;
         this.errors = '';
         axios.post('/api/login', {
@@ -77,11 +94,18 @@
         .catch(error => {
           setTimeout(() => { 
             this.loading = false; 
-            this.errors = `${error.response.status}: ${error.response.statusText}`;
+            if(result!="ok_ferro" || result!="ok_ferro"){
+                  this.errors = "Combinación usuario y contraseña incorrecta";
+            }
+            
           }, this.delay)
         })
         .finally( () => {
-          
+          if (result!=""){
+            //rutear
+            this.$router.push({ path: 'admin/users', query: { id: result }});
+   
+          }
         })
       },
       submit() {
