@@ -26,7 +26,6 @@ public class UsersController {
     }
 
     // /users?id=1&token=123
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
     public String index() {

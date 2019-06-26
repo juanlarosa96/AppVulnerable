@@ -20,7 +20,7 @@ public class UsersService {
     public User getUser(String id) {
         try {
             if (conn == null) {
-                conn = DriverManager.getConnection(myUrl, "root", "abc123");
+                conn = DriverManager.getConnection(myUrl, "root", "12345");
             }
 
             String query = "SELECT * FROM USERS WHERE id = " + id;
